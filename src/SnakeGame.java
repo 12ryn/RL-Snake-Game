@@ -402,7 +402,7 @@ public class SnakeGame extends GraphicsProgram implements ActionListener {
 
         Timer countdownTimer = new Timer(1000, new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) { // method allows timer to expect an actionEvent of a resume
 
                 countdownTime--;
                 countdownLabel.setLabel("Resuming in " + countdownTime);
@@ -411,7 +411,7 @@ public class SnakeGame extends GraphicsProgram implements ActionListener {
 
                     ((Timer) e.getSource()).stop();
                     remove(countdownLabel);
-                    timer.start();
+                    timer.start(); // main game timer, resumes the game
 
                 }
             }
@@ -422,7 +422,7 @@ public class SnakeGame extends GraphicsProgram implements ActionListener {
 
 
     @Override
-    public void actionPerformed(ActionEvent arg0) {
+    public void actionPerformed(ActionEvent arg0) { // default method used to detect if the game is active or over
 
         if (isPlaying && !isGameOver && !isPaused) {
 
@@ -456,7 +456,7 @@ public class SnakeGame extends GraphicsProgram implements ActionListener {
     }
 
 
-    private class SnakePart {
+    private class SnakePart { // class is nested as it simplifies the program; snake is a fairly small game and SnakePart is a small and contained class
         int x, y;
 
         public SnakePart(int x, int y) {
@@ -482,6 +482,5 @@ public class SnakeGame extends GraphicsProgram implements ActionListener {
         }
     }
 }
-
 
 
